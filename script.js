@@ -110,7 +110,8 @@ async function loadContent() {
 
     if (data) {
         renderApp(data);
-        hideStatus();
+        // hideStatus() removed from here; it is now handled inside renderApp
+        // to prevent hiding "No data" messages.
     } else {
         showStatus("Failed to load content. Please check your connection or data setup.");
     }
@@ -233,9 +234,13 @@ function renderApp(data) {
     dom.contentRoot.innerHTML = ''; // Clear
 
     if (!data.branches || data.branches.length === 0) {
-        showStatus("No branches found.");
+        // If data is empty, it might be an RLS issue or just no data.
+        showStatus("No subjects found. (If you added data, check Supabase RLS policies).");
         return;
     }
+
+    // Success: Hide the loading/status message
+    hideStatus();
 
     data.branches.forEach(branch => {
         const branchSection = document.createElement('section');
