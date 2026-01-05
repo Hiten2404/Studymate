@@ -2,6 +2,26 @@
  * StudyPortal - Core Logic
  */
 
+// --- DEBUG: Global Error Handler to catch "Blank Screen" issues ---
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+    const errorDiv = document.createElement('div');
+    errorDiv.style.position = 'fixed';
+    errorDiv.style.top = '0';
+    errorDiv.style.left = '0';
+    errorDiv.style.width = '100%';
+    errorDiv.style.background = 'rgba(255, 0, 0, 0.9)';
+    errorDiv.style.color = 'white';
+    errorDiv.style.padding = '20px';
+    errorDiv.style.zIndex = '10000';
+    errorDiv.style.fontFamily = 'monospace';
+    errorDiv.innerHTML = `<h3>Something went wrong!</h3>
+                          <p><b>Error:</b> ${msg}</p>
+                          <p><b>Line:</b> ${lineNo}</p>
+                          <p>Please take a screenshot of this and share it.</p>`;
+    document.body.appendChild(errorDiv);
+    return false;
+};
+
 // --- Configuration ---
 // REPLACE THESE WITH YOUR OWN SUPABASE CREDENTIALS AFTER CREATING THE PROJECT
 // These are currently placeholders. The app will fallback to local data.json if connection fails.
