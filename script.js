@@ -36,17 +36,19 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
 };
 
 // --- Configuration ---
-const SUPABASE_URL = 'https://qoeoorntostcarjviipi.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFvZW9vcm50b3N0Y2FyanZpaXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1OTcxODEsImV4cCI6MjA4MzE3MzE4MX0.LRWonVkFSfWLV9JE4QpJTIfBu3bMoehWIz_s_YreYOw';
+const SUPABASE_URL = "https://qoeoorntostcarjviipi.supabase.co";
+// WARNING: This key is public, but RLS protects the data.
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFvZW9vcm50b3N0Y2FyanZpaXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1OTcxODEsImV4cCI6MjA4MzE3MzE4MX0.LRWonVkFSfWLV9JE4QpJTIfBu3bMoehWIz_s_YreYOw";
 
-let supabase = null;
+// Use a unique name or window property to prevent conflicts during hot-reloads or debugging
+let supabaseClient = null;
 
 // --- Initialization ---
 logToScreen("Script starting...");
 
 if (window.supabase) {
     try {
-        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
         logToScreen("Supabase client created.");
     } catch (e) {
         logToScreen("Error creating Supabase client: " + e.message);
@@ -56,7 +58,7 @@ if (window.supabase) {
 }
 
 const CONFIG = {
-    useLocalData: !supabase,
+    useLocalData: !supabaseClient,
     pdfScale: 1.2,
 };
 
