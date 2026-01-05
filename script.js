@@ -5,8 +5,9 @@
 // --- Configuration ---
 // REPLACE THESE WITH YOUR OWN SUPABASE CREDENTIALS AFTER CREATING THE PROJECT
 // These are currently placeholders. The app will fallback to local data.json if connection fails.
-const SUPABASE_URL = 'YOUR_SUPABASE_URL_HERE';
-const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY_HERE';
+// Based on your PDF link, your project URL is:
+const SUPABASE_URL = 'https://qoeoorntostcarjviipi.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFvZW9vcm50b3N0Y2FyanZpaXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1OTcxODEsImV4cCI6MjA4MzE3MzE4MX0.LRWonVkFSfWLV9JE4QpJTIfBu3bMoehWIz_s_YreYOw';
 
 let supabase = null;
 
