@@ -1,0 +1,74 @@
+{
+  "branches": [
+    {
+      "name": "Computer Engineering",
+      "semesters": [
+        {
+          "name": "Semester 3",
+          "subjects": [
+            {
+              "name": "Data Structures",
+              "units": [
+                {
+                  "unit_number": "Unit 1",
+                  "title": "Introduction to DS",
+                  "pdf_url": "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
+                },
+                {
+                  "unit_number": "Unit 2",
+                  "title": "Arrays & Linked Lists",
+                  "pdf_url": "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Digital Logic",
+              "units": [
+                {
+                  "unit_number": "Unit 1",
+                  "title": "Boolean Algebra",
+                  "pdf_url": "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Semester 4",
+          "subjects": [
+            {
+              "name": "Operating Systems",
+              "units": [
+                {
+                    "unit_number": "Unit 1",
+                    "title": "Process Management",
+                    "pdf_url": "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Information Technology",
+      "semesters": [
+        {
+          "name": "Semester 3",
+          "subjects": [
+            {
+              "name": "Database Management",
+              "units": [
+                {
+                  "unit_number": "Unit 1",
+                  "title": "ER Modeling",
+                  "pdf_url": "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

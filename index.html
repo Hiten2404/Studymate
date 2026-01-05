@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Study Portal</title>
+
+    <!-- Meta Tags for SEO -->
+    <meta name="description"
+        content="Access free PDF study materials for Computer Engineering and IT students. organized by semester and subject.">
+
+    <!-- Fonts: Outfit for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PDF.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        if (window.pdfjsLib) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        } else {
+            console.warn("PDF.js failed to load via CDN.");
+        }
+    </script>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <i class="fa-solid fa-graduation-cap splash-icon"></i>
+            <h1>StudyPortal</h1>
+            <p>Loading your resources...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fa-solid fa-book-open"></i>
+            <span>StudyPortal</span>
+        </div>
+        <div class="search-container">
+            <i class="fa-solid fa-search search-icon"></i>
+            <input type="text" id="subject-search" placeholder="Search subjects...">
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <!-- Error/Loading Container -->
+        <div id="status-message" class="status-message hidden"></div>
+
+        <!-- Dynamic Content Root -->
+        <div id="content-root" class="content-grid">
+            <!-- Content will be injected here by script.js -->
+            <!-- Structure: Branch -> Semester -> Subject -> Unit Cards -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 StudyPortal. Built for Students.</p>
+    </footer>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdf-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="pdf-title">Unit Title</span>
+                <div class="modal-controls">
+                    <button class="icon-btn" id="zoom-out" title="Zoom Out"><i class="fa-solid fa-minus"></i></button>
+                    <span id="zoom-level">100%</span>
+                    <button class="icon-btn" id="zoom-in" title="Zoom In"><i class="fa-solid fa-plus"></i></button>
+                    <button class="close-btn" id="close-modal">&times;</button>
+                </div>
+            </div>
+
+            <div class="pdf-viewer-container" id="pdf-container">
+                <div id="pdf-loader" class="pdf-loader hidden">
+                    <div class="spinner"></div>
+                    <p>Loading PDF...</p>
+                </div>
+                <!-- Canvas elements for pages will be appended here -->
+                <div id="pdf-render-area"></div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="nav-btn" id="prev-page"><i class="fa-solid fa-chevron-left"></i> Prev</button>
+                <span id="page-info">Page <span id="current-page">1</span> of <span id="total-pages">--</span></span>
+                <button class="nav-btn" id="next-page">Next <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
